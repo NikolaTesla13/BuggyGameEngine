@@ -4,5 +4,5 @@
 class Window
 {
 public:
-    Window(int width, int height, const char* name, void update(), void start());
+    Window(int width, int height, const char* name, void update(), void start(), void input(GLFWwindow *, int, int, int, int));
 };

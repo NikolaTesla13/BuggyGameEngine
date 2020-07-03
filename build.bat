@@ -4,7 +4,7 @@ REM Path to g++
 SET G="g++"
 
 SET OBJECTS=
-Recursive every .cpp file in ./src
+REM Recursive every .cpp file in ./src
 FOR /R "buggy/src/" %%a IN (*.cpp) DO (
     CALL SET OBJECTS=%%OBJECTS%% "%%a"
 )
