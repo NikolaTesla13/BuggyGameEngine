@@ -1,12 +1,10 @@
 #include "triangle.h"
 #include "shader.h"
 
-Triangle::Triangle(float param_vertecies[21]) {
-        Shader ourShader("vertexShader.c", "fragmentShader.c");
-
-        float vertecies[21];
-        for(int i=0;i<18;i++) 
-            vertecies[i] = param_vertecies[i];
+Triangle::Triangle(float vertecies[21], char* vertexShader, char* fragmentShader) {
+        Shader ourShader(vertexShader, fragmentShader);
+        delete[] vertexShader;
+        delete[] fragmentShader;
 
         unsigned int VBO, VAO;
         glGenVertexArrays(1, &VAO);
@@ -14,7 +12,8 @@ Triangle::Triangle(float param_vertecies[21]) {
         glBindVertexArray(VAO);
 
         glBindBuffer(GL_ARRAY_BUFFER, VBO);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(vertecies), vertecies, GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(float)*18, vertecies, GL_STATIC_DRAW);
+        delete[] vertecies;
 
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
         glEnableVertexAttribArray(0);

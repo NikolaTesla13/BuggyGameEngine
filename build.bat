@@ -12,5 +12,6 @@ FOR /R "buggy/src/" %%a IN (*.cpp) DO (
 @ECHO ON
 REM echo %OBJECTS%
 %G% -c buggy/src/triangle.cpp -o lib/triangle.o lib/glad.o -Iinclude -Llib -lmingw32 -lglfw3 -lopengl32 -lgdi32 -luser32 
+%G% -c buggy/src/texture.cpp -o lib/texture.o lib/glad.o -Iinclude -Llib -lmingw32 -lglfw3 -lopengl32 -lgdi32 -luser32 
 %G% -c buggy/src/window.cpp -o lib/window.o lib/glad.o -Iinclude -Llib -lmingw32 -lglfw3 -lopengl32 -lgdi32 -luser32
-%G% main.cpp lib/triangle.o lib/window.o lib/glad.o -o playground.exe -Iinclude -Llib -lmingw32 -lglfw3 -lopengl32 -lgdi32 -luser32
+%G% main.cpp lib/triangle.o lib/window.o lib/texture.o lib/glad.o -o playground.exe -Iinclude -Llib -lmingw32 -lglfw3 -lopengl32 -lgdi32 -luser32

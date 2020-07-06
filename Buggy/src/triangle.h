@@ -4,6 +4,6 @@
 class Triangle 
 {
 public:
-    Triangle(float param_vertecies[21]);
+    Triangle(float param_vertecies[21], char* vertexShader, char* fragmentShader);
     void Debug();
 };

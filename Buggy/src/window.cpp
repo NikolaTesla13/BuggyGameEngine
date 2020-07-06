@@ -2,8 +2,9 @@
 #include "shader.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
+void input(GLFWwindow* window, int key, int scancode, int action, int mods);
 
-Window::Window(int width, int height, const char* name, void update(), void start(), void input(GLFWwindow *, int, int, int, int)) {
+Window::Window(int width, int height, const char* name, void update(), void start()) {
     GLFWwindow* window;
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
@@ -39,11 +40,14 @@ Window::Window(int width, int height, const char* name, void update(), void star
 
     while (!glfwWindowShouldClose(window))
     {
-        //glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClearColor(0.34901960784f, 0.61960784313725490196078431372549f, 1.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
         update();
     
+
+        
+
         glfwSwapBuffers(window);
 
         glfwPollEvents();
